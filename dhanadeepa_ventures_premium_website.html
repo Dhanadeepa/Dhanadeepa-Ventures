@@ -1,212 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dhanadeepa Ventures</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <style>
-body {
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:#0b0f1a;
-    color:white;
-}
-
-header {
-    position:fixed;
-    width:100%;
-    top:0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 50px;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    z-index:1000;
-}
-
-.logo {
-    display:flex;
-    align-items:center;
-}
-
-.logo img {
-    height:45px;
-    margin-right:10px;
-    border-radius:8px;
-}
-
-nav a {
-    color:white;
-    margin-left:20px;
-    text-decoration:none;
-    transition:0.3s;
-}
-nav a:hover {color:#00d4ff;}
-
-.hero {
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    background:linear-gradient(270deg,#0a1f44,#000);
-    animation:gradient 8s infinite alternate;
-    text-align:center;
-}
-
-.hero img {
-    width:180px;
-    margin-bottom:20px;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(0,212,255,0.5);
-}
-
-@keyframes gradient {
-    0% {background-position:left;}
-    100% {background-position:right;}
-}
-
-.hero h2 {
-    font-size:42px;
-}
-
-.section {
-    padding:100px 50px;
-}
-
-.services {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card {
-    padding:30px;
-    background:#111;
-    border-radius:15px;
-    transition:0.4s;
-}
-
-.card:hover {
-    transform:translateY(-10px) scale(1.03);
-    background:#00d4ff;
-    color:black;
-}
-
-.contact form {
-    max-width:500px;
-    margin:auto;
-}
-
-input, textarea {
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:5px;
-}
-
-button {
-    padding:12px 20px;
-    background:#00d4ff;
-    border:none;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-footer {
-    text-align:center;
-    padding:20px;
-    background:#000;
-}
-
-.fade-up {
-    opacity:0;
-    transform:translateY(40px);
-    transition:all 1s;
-}
-
-.fade-up.show {
-    opacity:1;
-    transform:translateY(0);
-}
+:root{--accent:#00d4ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,Arial;background:#0b0f1a;color:#fff}
+/* Loader */
+#loader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:2000}
+#loader span{font-size:22px;letter-spacing:2px;opacity:.8}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);z-index:1000}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:42px;border-radius:8px}
+nav a{color:#fff;margin-left:18px;text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:linear-gradient(270deg,#0a1f44,#000);animation:grad 8s infinite alternate}
+.hero img{width:170px;border-radius:12px;box-shadow:0 0 25px rgba(0,212,255,.5);margin-bottom:16px}
+@keyframes grad{0%{background-position:left}100%{background-position:right}}
+.section{padding:100px 40px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{padding:26px;background:#111;border-radius:16px;transition:.35s}
+.card:hover{transform:translateY(-10px) scale(1.03);background:var(--accent);color:#000}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.testimonial{background:#111;padding:20px;border-radius:14px}
+.clients{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;opacity:.8}
+.clients div{padding:10px 18px;border:1px dashed #333;border-radius:10px}
+.contact form{max-width:520px;margin:auto}
+input,textarea{width:100%;padding:12px;margin:10px 0;border:none;border-radius:6px}
+button{padding:12px 20px;background:var(--accent);border:none;font-weight:600;cursor:pointer}
+footer{text-align:center;padding:20px;background:#000}
+.fade-up{opacity:0;transform:translateY(40px);transition:all 1s}
+.fade-up.show{opacity:1;transform:translateY(0)}
+/* WhatsApp */
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#000;padding:12px 16px;border-radius:50px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+/* Map */
+.map{width:100%;height:300px;border:0;border-radius:12px}
 </style>
 </head>
-
 <body>
-
+<div id="loader"><span>Loading Dhanadeepa Ventures...</span></div>
 <header>
-<div class="logo">
-<img src="logo.png" alt="Dhanadeepa Logo">
-<strong>Dhanadeepa Ventures</strong>
-</div>
-<nav>
-<a href="#">Home</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
+  <div class="logo">
+    <img src="logo.png" alt="logo" />
+    <strong>Dhanadeepa Ventures</strong>
+  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-<img src="logo.png" alt="Logo">
-<h2>Corporate Outsourcing & Verification Solutions</h2>
-<p>Reliable • Secure • Professional</p>
+  <img src="logo.png" alt="logo" />
+  <h2>Corporate Outsourcing & Verification Solutions</h2>
+  <p>Reliable • Secure • Professional</p>
 </section>
 
 <section class="section fade-up" id="services">
-<h2>Our Services</h2>
-<div class="services">
-<div class="card">Outsourcing</div>
-<div class="card">Hiring & Employment</div>
-<div class="card">KYC & BGV</div>
-<div class="card">Field Verification</div>
-<div class="card">Debt Recovery</div>
-<div class="card">Loan Consulting</div>
-<div class="card">Call Center</div>
-<div class="card">Legal Consulting</div>
-</div>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">Outsourcing</div>
+    <div class="card">Hiring & Employment</div>
+    <div class="card">KYC & BGV</div>
+    <div class="card">Field Verification</div>
+    <div class="card">Debt Recovery</div>
+    <div class="card">Loan Consulting</div>
+    <div class="card">Call Center</div>
+    <div class="card">Legal Consulting</div>
+  </div>
+</section>
+
+<section class="section fade-up" id="clients">
+  <h2>Our Clients</h2>
+  <div class="clients">
+    <div>Banking Partners</div>
+    <div>NBFC Clients</div>
+    <div>Corporate Firms</div>
+    <div>Legal Associates</div>
+  </div>
+</section>
+
+<section class="section fade-up">
+  <h2>Testimonials</h2>
+  <div class="grid-3">
+    <div class="testimonial">"Professional BGV services and quick turnaround."</div>
+    <div class="testimonial">"Reliable field verification across UP."</div>
+    <div class="testimonial">"Great outsourcing partner for scaling ops."</div>
+  </div>
+</section>
+
+<section class="section fade-up">
+  <h2>Our Location</h2>
+  <iframe class="map" src="https://maps.google.com/maps?q=Chinhat%20Lucknow&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
 <section class="section contact fade-up" id="contact">
-<h2>Contact Us</h2>
-<form onsubmit="submitForm(event)">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea placeholder="Your Message" required></textarea>
-<button type="submit">Send Message</button>
-</form>
-
-<p style="text-align:center;margin-top:20px;">
-📞 +91-9278323773 <br>
-📧 support@ddfinventa.com | sales@ddfinventa.com <br>
-📍 Lucknow, Uttar Pradesh
-</p>
+  <h2>Contact Us</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p style="text-align:center;margin-top:20px">
+    📞 +91-9278323773 <br />
+    📧 support@ddfinventa.com | sales@ddfinventa.com <br />
+    📍 Ajaynagar, Chinhat, Lucknow – 226010
+  </p>
 </section>
 
-<footer>
-© 2026 Dhanadeepa Ventures
-</footer>
+<footer>© 2026 Dhanadeepa Ventures</footer>
+
+<a class="whatsapp" href="https://wa.me/919278323773" target="_blank">WhatsApp</a>
 
 <script>
-const elements = document.querySelectorAll('.fade-up');
-window.addEventListener('scroll', () => {
-    elements.forEach(el => {
-        const position = el.getBoundingClientRect().top;
-        if(position < window.innerHeight - 100){
-            el.classList.add('show');
-        }
-    });
+// Loader
+window.onload = () => document.getElementById('loader').style.display='none';
+
+// Scroll reveal
+const els=document.querySelectorAll('.fade-up');
+window.addEventListener('scroll',()=>{
+  els.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add('show')}})
 });
 
-function submitForm(e){
-    e.preventDefault();
-    alert('Thank you! Your message has been received.');
-}
-</script>
+// EmailJS init (replace with your IDs)
+(function(){ emailjs.init('YOUR_PUBLIC_KEY'); })();
 
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
+    from_name:document.getElementById('name').value,
+    from_email:document.getElementById('email').value,
+    message:document.getElementById('message').value
+  }).then(()=>{
+    alert('Message sent successfully!');
+    this.reset();
+  },()=>{
+    alert('Failed to send. Check EmailJS setup.');
+  });
+});
+</script>
 </body>
 </html>
